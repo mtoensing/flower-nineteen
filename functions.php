@@ -129,7 +129,7 @@ function the_excerpt_more_link( $excerpt ){
 		$readmore = sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Lies weiter…<span class="screen-reader-text"> "%s"</span>', 'twentynineteen' ),
+				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentynineteen' ),
 				array(
 					'span' => array(
 						'class' => array(),
