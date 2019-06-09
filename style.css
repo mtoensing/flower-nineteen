@@ -8,7 +8,7 @@ GitHub Theme URI: mtoensing/flower-seventeen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 1.4
+Version: 1.5
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -83,4 +83,49 @@ html .type-game .shortscore-hreview .link {
 html .type-game .shortscore-hreview .text,
 html .single .type-game .shortscore {
 	background-color: #337EB9;
+}
+
+
+/* links */
+.entry .entry-content a[href*='=087022']:after,
+.entry .entry-content a[href*='/out/']:after {
+content: "\2197";
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+}
+
+/* legacy */
+.promoted-comment cite {
+    display: block;
+}
+
+#colophon .site-info .privacy-policy-link {
+    margin-left: 1rem;
+}
+
+.comment-metadata time {
+    display: none;
+}
+
+/* 14.0 Comments */
+
+html .comment-list .comment-reply-link {
+    border: none;
+    background-color: #ddd;
+    text-decoration: none;
+    padding: 0.4em 1em;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
+
+html .comment-list .comment-reply-link:hover,
+html .comment-list .comment-reply-link:active {
+    background-color: #767676;
+    color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
