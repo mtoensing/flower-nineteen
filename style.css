@@ -128,3 +128,9 @@ html .comment-list .comment-reply-link:active {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
+.entry .entry-content.excerpt-text a:not(.readmorelink),
+.entry .entry-content.excerpt-text a:hover:not(.readmorelink) {
+  color: #111;
+  text-decoration: none;
+}

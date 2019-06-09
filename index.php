@@ -26,7 +26,7 @@ get_header();
 			// Load posts loop.
 			while ( have_posts() ) {
 				the_post();
-				get_template_part( 'template-parts/content/content','excerpt' );
+				get_template_part( 'template-parts/content/content','nometa' );
 			}
 
 			// Previous/next page navigation.
