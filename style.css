@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 /*
 Theme Name: A Field of Flowers
 Theme URI: https://wordpress.org/themes/twentynineteen/
@@ -8,125 +9,127 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 2.5
+Version: 2.7
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
 Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, threaded-comments, translation-ready
 */
-
-
 /* typography */
+#page,
 html .type-game .shortscore-hreview .text,
 html .type-game .shortscore-hreview .rating,
 html .type-game .shortscore-hreview .link,
 html .shortscore-widget a,
 html .marctv-moderate-links,
 .page-template-sortbyreview .entry-content ul {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
+
+.entry .entry-content .wp-block-cover,
+.entry .entry-content blockquote {
+  font-family: "NonBreakingSpaceOverride", "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif
+}
+
 /* table */
 .entry-content tfoot {
-    border-top: 2px solid #040404;
-    padding-bottom: 0.5em;
+  border-top: 2px solid #040404;
+  padding-bottom: 0.5em;
 }
 
 .entry-content table th {
-    border-bottom: 2px solid #333;
-    background: #4c4c4c;
-    color: #fff;
+  border-bottom: 2px solid #333;
+  background: #4c4c4c;
+  color: #fff;
 }
 
 .entry-content table td,
 .entry-content table th {
-    border: 0;
+  border: 0;
 }
 
 .entry-content table tr {
-    border-bottom: 1px solid #4c4c4c;
+  border-bottom: 1px solid #4c4c4c;
 }
 
 .entry-content table tr:nth-child(odd) {
-    background: #f7f7f7;
+  background: #f7f7f7;
 }
 
 /* SHORTSCORE Widget */
 .shortscore-widget a {
-    font-size: 200%;
-    line-height: 1;
+  font-size: 200%;
+  line-height: 1;
 }
 
 /* SHORTSCORE Styling */
-
 .page-template-sortbyreview .entry-content ul {
-    list-style: none;
+  list-style: none;
 }
 
 .shortscore-hreview a {
-    box-shadow: none !important;
-    text-decoration: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
 }
 
 html .type-game .shortscore-hreview .text,
 html .type-game .shortscore-hreview .rating,
 html .type-game .shortscore-hreview .link {
-    float: none;
+  float: none;
 }
 
 html .type-game .shortscore-hreview .link {
-    text-align: center;
+  text-align: center;
 }
 
 .shortscore-title {
-    display: none;
+  display: none;
 }
 
 html .type-game .shortscore-hreview .text,
 html .single .type-game .shortscore {
-	background-color: #337EB9;
+  background-color: #337EB9;
 }
-
 
 /* links */
 .entry .entry-content a[href*='=087022']:after,
 .entry .entry-content a[href*='/out/']:after {
-content: "\2197";
-		line-height: 0;
-		position: relative;
-		vertical-align: baseline;
+  content: "\2197";
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 /* legacy */
 .promoted-comment cite {
-    display: block;
+  display: block;
 }
 
 #colophon .site-info .privacy-policy-link {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .comment-metadata time {
-    display: none;
+  display: none;
 }
 
 /* 14.0 Comments */
 html .comment-list .comment-reply-link {
-    transition: background 150ms ease-in-out;
-    background: #0073aa;
-    border: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-    color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.2;
-    outline: none;
-    padding: 0.36rem 0.5rem;
-    text-decoration: none;
-    vertical-align: bottom;
+  transition: background 150ms ease-in-out;
+  background: #0073aa;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  outline: none;
+  padding: 0.36rem 0.5rem;
+  text-decoration: none;
+  vertical-align: bottom;
 }
-
 
 html .comment-list .comment-reply-link:hover,
 html .comment-list .comment-reply-link:active {
@@ -141,31 +144,30 @@ html .comment-list .comment-reply-link:active {
 }
 
 html nav.navigation.pagination {
-    margin-top: 3em;
+  margin-top: 3em;
 }
-
 
 /* warning box */
 .entry-content .warning {
-    background-color: #efefef;
-    padding: 0.3em 0.5em 0.6em;
-    border: 1px solid #d9dee0;
-    border-radius: .125rem;
+  background-color: #efefef;
+  padding: 0.3em 0.5em 0.6em;
+  border: 1px solid #d9dee0;
+  border-radius: .125rem;
 }
 
 .entry-content .warning a {
-    color: #111;
+  color: #111;
 }
 
 /* Last commented */
 li.lastcommented a .comment-author-link {
-    color: #0070a8;
+  color: #0070a8;
 }
 
 li.lastcommented a:hover .comment-author-link {
-    color: #004e75;
+  color: #004e75;
 }
 
 li.lastcommented a {
-    color: #111;
+  color: #111;
 }
