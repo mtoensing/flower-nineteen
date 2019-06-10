@@ -8,7 +8,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 2.4
+Version: 2.5
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -21,6 +21,7 @@ html .type-game .shortscore-hreview .text,
 html .type-game .shortscore-hreview .rating,
 html .type-game .shortscore-hreview .link,
 html .shortscore-widget a,
+html .marctv-moderate-links,
 .page-template-sortbyreview .entry-content ul {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
@@ -110,23 +111,27 @@ content: "\2197";
 
 /* 14.0 Comments */
 html .comment-list .comment-reply-link {
+    transition: background 150ms ease-in-out;
+    background: #0073aa;
     border: none;
-    background-color: #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    outline: none;
+    padding: 0.36rem 0.5rem;
     text-decoration: none;
-    padding: 0.4em 1em;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+    vertical-align: bottom;
 }
 
 
 html .comment-list .comment-reply-link:hover,
 html .comment-list .comment-reply-link:active {
-    background-color: #767676;
-    color: #fff;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+  background: #111;
+  cursor: pointer;
 }
 
 .entry .entry-content.excerpt-text a:not(.readmorelink),
@@ -149,5 +154,18 @@ html nav.navigation.pagination {
 }
 
 .entry-content .warning a {
+    color: #111;
+}
+
+/* Last commented */
+li.lastcommented a .comment-author-link {
+    color: #0070a8;
+}
+
+li.lastcommented a:hover .comment-author-link {
+    color: #004e75;
+}
+
+li.lastcommented a {
     color: #111;
 }
