@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 2.7
+Version: 2.8
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -23,6 +23,7 @@ html .type-game .shortscore-hreview .link,
 html .shortscore-widget a,
 html .search-field,
 html .marctv-moderate-links,
+html textarea,
 .page-template-sortbyreview .entry-content ul {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
@@ -171,4 +172,17 @@ li.lastcommented a:hover .comment-author-link {
 
 li.lastcommented a {
   color: #111;
+}
+
+.menu-social-container,
+.site-description {
+    display: none;
+}
+
+.home .menu-social-container {
+    display: block;
+}
+
+.home .site-description {
+    display: inline;
 }
