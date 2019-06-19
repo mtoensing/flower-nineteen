@@ -189,3 +189,16 @@ li.lastcommented a {
     text-decoration: none;
     color: #111;
 }
+
+/*.page-template-show-galleries */
+
+.page-template-show-galleries .gallery-icon img {
+  width: 100%;
+}
+.page-template-show-galleries .gallery-icon .gallery-caption .gallery-caption {
+  padding: 0;
+}
+
+.page-template-show-galleries .gallery {
+  justify-content: normal;
+}

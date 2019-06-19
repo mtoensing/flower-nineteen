@@ -13,6 +13,44 @@ function flower_enqueue_styles() {
 	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 }
 
+
+/* Galeries */
+
+function get_gallery_list() {
+
+	$args = array(
+		'post_type'      => 'post',
+		'orderby'        => array( 'meta_value_num' => 'DESC', 'date' => 'DESC' ),
+		'meta_key'       => '_shortscore_user_rating',
+		'posts_per_page' => '300',
+		'order'          => 'DESC'
+	);
+
+	$the_query = new WP_Query( $args );
+	$html      = '';
+
+	while ( $the_query->have_posts() ) :
+		$the_query->the_post();
+		$title 		= '';
+		$pid         = get_the_ID();
+		$post_title       = get_the_title( $gid );
+		$result =  get_post_meta( $pid, "_shortscore_result", true );
+		$result = json_decode(json_encode($result));
+		if ( isset( $result->game ) AND isset( $result->game->title ) ) {
+			$title =  $result->game->title;
+		}
+
+		if ( $title != '' AND get_post_gallery() ) :
+			echo "<h2>". $title . "</h2>";
+		  echo get_post_gallery();
+		endif;
+
+
+	endwhile;
+
+	return $html;
+}
+
 /* SHORTSCORE */
 
 function get_shortscore_list() {
@@ -58,65 +96,6 @@ function get_shortscore_list() {
 	return $html;
 }
 
-
-function get_shortscore_table() {
-
-	$args = array(
-		'post_type'      => 'game',
-		'orderby'        => 'meta_value_num',
-		'orderby'        => array( 'meta_value_num' => 'DESC', 'date' => 'DESC' ),
-		'meta_key'       => 'score_value',
-		'posts_per_page' => '300',
-		'order'          => 'DESC'
-	);
-
-	$the_query = new WP_Query( $args );
-	$html      = '<table class="GeneratedTable">
-  <thead>
-    <tr>
-      <th>Score</th>
-      <th>Votes</th>
-      <th>Game</th>
-      <!-- <th>Developer</th> -->
-      <th>Release Date</th>
-    </tr>
-  </thead>
-  <tbody>';
-	$score     = '';
-
-	while ( $the_query->have_posts() ) :
-		$the_query->the_post();
-		$gid         = get_the_ID();
-		$shortscore  = get_post_meta( $gid, "score_value", true );
-		$title       = get_the_title( $gid );
-		$score_count = get_post_meta( $gid, "score_count", true );
-		//$developer_list = get_the_term_list( $gid, 'developer', '', ', ' );
-		$releasedate = get_the_date( 'd. m. Y', $gid );
-
-		$html .= '<tr>';
-		$html .= '<td>';
-		$html .= $shortscore . '/10';
-		$html .= "</td> \n";
-		$html .= '<td>';
-		$html .= $score_count;
-		$html .= "</td> \n";
-		$html .= '<td>';
-		$html .= '<a href="' . get_permalink() . '">' . $title . '</a>';
-		$html .= "</td> \n";
-		//$html .= '<td>';
-		//$html .= $developer_list;
-		//$html .= "</td> \n";
-		$html .= '<td>';
-		$html .= $releasedate;
-		$html .= "</td> \n";
-
-		$html .= '</tr>';
-	endwhile;
-	$html .= '  </tbody>
-</table>';
-
-	return $html;
-}
 
 /* more link */
 function new_excerpt_more($more) {
