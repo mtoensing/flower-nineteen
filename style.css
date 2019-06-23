@@ -202,3 +202,18 @@ li.lastcommented a {
 .page-template-show-galleries .gallery {
   justify-content: normal;
 }
+
+/* shell */
+
+/* shell */
+html .wp-block-code {
+  background-color: #141414;
+  padding: 0.3em;
+}
+
+.wp-block-code code,
+.shell-look {
+    list-style: none;
+    background: #141414;
+    color: #45D40C;
+}
