@@ -226,3 +226,39 @@ html .wp-block-code {
 html #colophon .site-info .privacy-policy-link {
   margin-left: 0;
 }
+
+.home #breadcrumbs {
+	display: none;
+}
+
+/* pixelated */
+.ptag-pixelated .single-featured-image-header img,
+.tag-pixelated .post-thumbnail img,
+.tag-pixelated .entry-content img {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* YARPP*/
+#main .yarpp-related img {
+	width: 100%;
+}
+
+#jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
+	font-size: 80%;
+}
+
+#main .yarpp-related {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+}
+
+/*hide widget on home */
+.home .widget_recent_entries {
+	display: none;
+}
