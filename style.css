@@ -256,6 +256,8 @@ html #colophon .site-info .privacy-policy-link {
     margin-left: auto;
     margin-right: auto;
     clear: both;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 /*hide widget on home */
