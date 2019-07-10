@@ -32,7 +32,11 @@ html .page-template-sortbyreview .entry-content ul {
 
 .entry .entry-content .wp-block-cover,
 .entry .entry-content blockquote {
-  font-family: "NonBreakingSpaceOverride", "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif
+
+}
+
+html .entry .entry-content .wp-block-quote p {
+  font-style: italic;
 }
 
 /* table */

@@ -15,9 +15,7 @@ function flower_enqueue_styles()
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
 }
 
-
 /* Galeries */
-
 function get_gallery_list()
 {
     $args = array(
