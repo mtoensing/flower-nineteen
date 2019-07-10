@@ -20,7 +20,7 @@
 		<div class="site-info">
 			<?php $blog_info = get_bloginfo( 'name' ); ?>
 			<?php if ( function_exists( 'yoast_breadcrumb' ) ) : ?>
-				<?php yoast_breadcrumb(); ?>
+				<?php yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
 			<?php else: ?>
 				<?php if ( ! empty( $blog_info ) ) : ?>
 					<a class="site-name" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
