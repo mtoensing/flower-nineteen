@@ -246,8 +246,10 @@ html #colophon .site-info .privacy-policy-link {
 	width: 100%;
 }
 
-#jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
-	font-size: 80%;
+@media only screen and (max-width: 768px) {
+  #jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
+  	font-size: 80%;
+  }
 }
 
 #main .yarpp-related {
