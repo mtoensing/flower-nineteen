@@ -247,14 +247,14 @@ html #colophon .site-info .privacy-policy-link {
 }
 
 @media only screen and (max-width: 768px) {
-  #jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
+  html #jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
   	font-size: 80%;
   }
 }
 
 #main .yarpp-related {
     width: 100%;
-    max-width: 1920px;
+    max-width: 1480px;
     margin-left: auto;
     margin-right: auto;
     clear: both;
@@ -265,4 +265,9 @@ html #colophon .site-info .privacy-policy-link {
 /*hide widget on home */
 .home .widget_recent_entries {
 	display: none;
+}
+
+/* box-shadow */
+.dropshadow img {
+  box-shadow: 5px 5px 9px #558;
 }
