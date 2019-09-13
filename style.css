@@ -211,15 +211,17 @@ li.lastcommented a {
 
 /* shell */
 html .wp-block-code {
-  background-color: #141414;
+  background-color: #272727;
+  color: #f4f5f4;
   padding: 0.3em 0.6em;
+  border-top: 0.3em solid #037bb3;
+  border-left: 0;
+  border-right: 0;
 }
 
 .wp-block-code code,
 .shell-look {
     list-style: none;
-    background: #141414;
-    color: #45D40C;
 }
 
 /* breadcrumb styling */
