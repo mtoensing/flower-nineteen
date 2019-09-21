@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 3.8
+Version: 3.9
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -31,9 +31,7 @@ html .page-template-sortbyreview .entry-content ul {
 }
 
 .entry .entry-content .wp-block-cover,
-.entry .entry-content blockquote {
-
-}
+.entry .entry-content blockquote {}
 
 html .entry .entry-content .wp-block-quote p {
   font-style: italic;
@@ -178,27 +176,28 @@ li.lastcommented a {
 
 .menu-social-container,
 .site-description {
-    display: none;
+  display: none;
 }
 
 .home .menu-social-container {
-    display: block;
+  display: block;
 }
 
 .home .site-description {
-    display: inline;
+  display: inline;
 }
+
 /* promoted comments */
 .entry-content .promoted-comment p a {
-    text-decoration: none;
-    color: #111;
+  text-decoration: none;
+  color: #111;
 }
 
 /*.page-template-show-galleries */
-
 .page-template-show-galleries .gallery-icon img {
   width: 100%;
 }
+
 .page-template-show-galleries .gallery-icon .gallery-caption .gallery-caption {
   padding: 0;
 }
@@ -208,20 +207,17 @@ li.lastcommented a {
 }
 
 /* shell */
-
-/* shell */
 html .wp-block-code {
   background-color: #272727;
   color: #f4f5f4;
   padding: 0.2em 0.4em 0.4em;
+  border: 0;
   border-top: 0.3em solid #037bb3;
-  border-left: 0;
-  border-right: 0;
 }
 
 .wp-block-code code,
 .shell-look {
-    list-style: none;
+  list-style: none;
 }
 
 /* breadcrumb styling */
@@ -230,46 +226,148 @@ html #colophon .site-info .privacy-policy-link {
 }
 
 .home #breadcrumbs {
-	display: none;
+  display: none;
 }
 
 /* pixelated */
 .ptag-pixelated .single-featured-image-header img,
 .tag-pixelated .post-thumbnail img,
 .tag-pixelated .entry-content img {
-    image-rendering: -moz-crisp-edges;
-    image-rendering: -webkit-crisp-edges;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 /* YARPP*/
 #main .yarpp-related img {
-	width: 100%;
+  width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
   html #jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
-  	font-size: 80%;
+    font-size: 80%;
   }
 }
 
 #main .yarpp-related {
-    width: 100%;
-    max-width: 1480px;
-    margin-left: auto;
-    margin-right: auto;
-    clear: both;
-    padding-left: 1em;
-    padding-right: 1em;
+  width: 100%;
+  max-width: 1480px;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 /*hide widget on home */
 .home .widget_recent_entries {
-	display: none;
+  display: none;
 }
 
 /* box-shadow */
 .dropshadow img {
   box-shadow: 5px 5px 9px #558;
+}
+
+/* DARK MODE */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #111;
+    --bg-color-lighter: #333;
+    --txt-color: #efefef;
+    --txt-color-darker: #aaa;
+    --highlight-color: hsla(200, 100%, 47%, 1);
+  }
+
+  .wp-block-image figcaption,
+  .wp-block-quote__citation,
+  .wp-block-quote cite,
+  .wp-block-quote footer {
+    color: var(--txt-color-darker);
+  }
+
+  a:focus, a:active {
+    outline: 1px solid var(--highlight-color);
+    color: var(--highlight-color) !important;
+  }
+
+  html a:hover {
+    color: var(--highlight-color);
+  }
+
+  html .site-title a:link, .site-title a:visited {
+    color: var(--txt-color)
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+  }
+
+  textarea {
+    background-color: var(--bg-color-lighter);
+    color: var(--txt-color);
+  }
+
+  /* Table */
+  html .entry-content table tr:nth-child(odd) {
+    background: var(--bg-color-lighter);
+  }
+
+  html .button:hover, button:hover,
+  html input[type="button"]:hover,
+  html input[type="reset"]:hover,
+  html input[type="submit"]:hover,
+  html .comment-list .comment-reply-link:hover,
+  html .comment-list .comment-reply-link:active {
+    background: var(--highlight-color);
+  }
+
+  html .comment-list a .comment-author-link
+  html .comment-list a {
+    transition: unset ! important;
+  }
+
+  input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"],
+  input[type="tel"], input[type="range"], input[type="date"], input[type="month"],
+  input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"], textarea {
+    border: solid 1px var(--bg-color-lighter);
+  }
+
+  html .entry .entry-content.excerpt-text a:not(.readmorelink),
+  html .entry .entry-content.excerpt-text a:hover:not(.readmorelink) {
+    color: var(--highlight-color);
+  }
+
+  html li.lastcommented a {
+    color: var(--txt-color);
+  }
+
+  ::-moz-selection {
+    background-color: var(--highlight-color);
+  }
+
+  ::selection {
+    background-color: var(--highlight-color);
+  }
+
+  html div.shortscore {
+      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark.png');
+  }
+  html  .single .type-game div.shortscore {
+      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@2x.png');
+  }
+
+  @media only screen and (min-resolution: 192dpi), only screen and (min-device-pixel-ratio: 2) {
+      html  div.shortscore {
+          background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@2x.png');
+      }
+
+      html  .single .type-game div.shortscore {
+          background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@4x.png');
+      }
+  }
+
 }
