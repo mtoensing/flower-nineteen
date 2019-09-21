@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 3.9
+Version: 3.9.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -212,7 +212,7 @@ html .wp-block-code {
   color: #f4f5f4;
   padding: 0.2em 0.4em 0.4em;
   border: 0;
-  border-top: 0.3em solid #037bb3;
+  border-top: 0.3em solid #0073aa;
 }
 
 .wp-block-code code,
@@ -278,7 +278,8 @@ html #colophon .site-info .privacy-policy-link {
     --bg-color-lighter: #333;
     --txt-color: #efefef;
     --txt-color-darker: #aaa;
-    --highlight-color: hsla(200, 100%, 47%, 1);
+    --highlight-color: #0073aa;
+    --highlight-color-lighter: hsl( 200, 100%, 23% );
   }
 
   .wp-block-image figcaption,
@@ -294,11 +295,18 @@ html #colophon .site-info .privacy-policy-link {
   }
 
   html a:hover {
-    color: var(--highlight-color);
+    color: var(--highlight-color-lighter);
   }
 
-  html .site-title a:link, .site-title a:visited {
-    color: var(--txt-color)
+  html .site-title a:link,
+  html .site-title a:visited,
+  html .social-navigation ul.social-links-menu li a {
+    color: var(--txt-color);
+  }
+
+  html .social-navigation ul.social-links-menu li a:hover,
+  html .social-navigation ul.social-links-menu li a:active {
+    color: var(--txt-color-darker);
   }
 
   body {
