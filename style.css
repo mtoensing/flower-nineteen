@@ -299,6 +299,7 @@ html #colophon .site-info .privacy-policy-link {
     color: var(--highlight-color-lighter);
   }
 
+  .archive .page-header .search-term, .archive .page-header .page-description, .search .page-header .search-term, .search .page-header .page-description, .error404 .page-header .search-term, .error404 .page-header .page-description,
   html .site-title a:link,
   html .site-title a:visited,
   html .social-navigation ul.social-links-menu li a {
