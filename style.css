@@ -271,7 +271,6 @@ html #colophon .site-info .privacy-policy-link {
 }
 
 /* DARK MODE */
-
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #111;
@@ -279,7 +278,7 @@ html #colophon .site-info .privacy-policy-link {
     --txt-color: #efefef;
     --txt-color-darker: #aaa;
     --highlight-color: #0073aa;
-    --highlight-color-lighter: hsl( 200, 100%, 23% );
+    --highlight-color-lighter: hsl(200, 100%, 23%);
   }
 
   .wp-block-image figcaption,
@@ -317,13 +316,22 @@ html #colophon .site-info .privacy-policy-link {
   }
 
   textarea {
-    background-color: var(--bg-color-lighter);
-    color: var(--txt-color);
+    color: #111;
   }
 
   /* Table */
   html .entry-content table tr:nth-child(odd) {
     background: var(--bg-color-lighter);
+  }
+
+  html .quicktags-toolbar {
+    background: var(--bg-color-lighter);
+    background-image: var(--bg-color));
+    background-image: linear-gradient(bottom, var(--bg-color-lighter), var(--bg-color));
+  }
+
+  html .quicktags-toolbar input:hover {
+    color: var(--txt-color);
   }
 
   html .button:hover, button:hover,
@@ -332,11 +340,10 @@ html #colophon .site-info .privacy-policy-link {
   html input[type="submit"]:hover,
   html .comment-list .comment-reply-link:hover,
   html .comment-list .comment-reply-link:active {
-    background: var(--highlight-color);
+    background: var(--highlight-color-lighter);
   }
 
-  html .comment-list a .comment-author-link
-  html .comment-list a {
+  html .comment-list a .comment-author-link html .comment-list a {
     transition: unset ! important;
   }
 
@@ -364,20 +371,25 @@ html #colophon .site-info .privacy-policy-link {
   }
 
   html div.shortscore {
-      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark.png');
+    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark.png');
   }
-  html  .single .type-game div.shortscore {
-      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@2x.png');
+
+  html .single .type-game div.shortscore {
+    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@2x.png');
+  }
+
+  html .entry .entry-content.excerpt-text a:not(.readmorelink),
+  html .entry .entry-content.excerpt-text a:hover:not(.readmorelink) {
+    color: var(--txt-color);
   }
 
   @media only screen and (min-resolution: 192dpi), only screen and (min-device-pixel-ratio: 2) {
-      html  div.shortscore {
-          background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@2x.png');
-      }
+    html div.shortscore {
+      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@2x.png');
+    }
 
-      html  .single .type-game div.shortscore {
-          background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@4x.png');
-      }
+    html .single .type-game div.shortscore {
+      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@4x.png');
+    }
   }
-
 }
