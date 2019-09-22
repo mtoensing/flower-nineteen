@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 3.9.2
+Version: 4.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -271,35 +271,90 @@ html #colophon .site-info .privacy-policy-link {
 }
 
 /* DARK MODE */
+/* DARK MODE */
+/* DARK MODE */
+/* Define variables */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #111;
+    --bg-color: #000;
     --bg-color-lighter: #333;
     --txt-color: #efefef;
     --txt-color-darker: #aaa;
-    --highlight-color: #0073aa;
-    --highlight-color-lighter: hsl(200, 100%, 23%);
+    --highlight-color: #5a91f6;
+    --highlight-color-selected: #216efb;
+    /*
+    --highlight-color: DeepPink;
+    --highlight-color-selected: Pink;
+      */
   }
 
-  .wp-block-image figcaption,
-  .wp-block-video figcaption,
-  .wp-block-gallery figcaption,
-  .wp-block-quote__citation,
-  .wp-block-quote cite,
-  .wp-block-quote footer {
-    color: var(--txt-color-darker);
+  body {
+    background-color: var(--bg-color);
+    color: var(--txt-color);
   }
 
   a:focus, a:active {
     outline: 1px solid var(--highlight-color);
-    color: var(--highlight-color) !important;
   }
 
-  html a:hover {
-    color: var(--highlight-color-lighter);
+  html a,
+  html a:visited,
+  html .main-navigation .main-menu>li,
+  html .main-navigation ul.main-menu>li>a,
+  html .post-navigation .post-title,
+  html .entry .entry-meta a:hover,
+  html .entry .entry-footer a:hover,
+  html .entry .entry-content .more-link:hover,
+  html .main-navigation .main-menu>li>a+svg,
+  html .comment .comment-metadata>a:hover,
+  html .comment .comment-metadata .comment-edit-link:hover,
+  html #colophon .site-info a:hover,
+  html .widget a,
+  html .entry .entry-content .wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color),
+  html .entry .entry-content>.has-primary-color,
+  html .entry .entry-content>*[class^="wp-block-"] .has-primary-color,
+  html .entry .entry-content>*[class^="wp-block-"].is-style-solid-color blockquote.has-primary-color,
+  html .entry .entry-content>*[class^="wp-block-"].is-style-solid-color blockquote.has-primary-color p,
+  html li.lastcommented a .comment-author-link {
+    color: var(--highlight-color);
   }
 
-  .archive .page-header .search-term, .archive .page-header .page-description, .search .page-header .search-term, .search .page-header .page-description, .error404 .page-header .search-term, .error404 .page-header .page-description,
+  html a:hover,
+  html a:active,
+  html .main-navigation .main-menu>li>a:hover,
+  html .main-navigation .main-menu>li>a:hover+svg,
+  html .post-navigation .nav-links a:hover,
+  html .post-navigation .nav-links a:hover .post-title,
+  html .author-bio .author-description .author-link:hover,
+  html .entry .entry-content>.has-secondary-color,
+  html .entry .entry-content>*[class^="wp-block-"] .has-secondary-color,
+  html .entry .entry-content>*[class^="wp-block-"].is-style-solid-color blockquote.has-secondary-color,
+  html .entry .entry-content>*[class^="wp-block-"].is-style-solid-color blockquote.has-secondary-color p,
+  html .comment .comment-author .fn a:hover,
+  html .comment-reply-link:hover,
+  html .comment-navigation .nav-previous a:hover,
+  html .comment-navigation .nav-next a:hover,
+  html #cancel-comment-reply-link:hover,
+  html .widget a:hover,
+  html li.lastcommented a:hover .comment-author-link {
+    color: var(--highlight-color-selected);
+  }
+
+  html .wp-block-image figcaption,
+  html .wp-block-video figcaption,
+  html .wp-block-gallery figcaption,
+  html .wp-block-quote__citation,
+  html .wp-block-quote cite,
+  html .wp-block-quote footer {
+    color: var(--txt-color-darker);
+  }
+
+  html .archive .page-header .search-term,
+  html .archive .page-header .page-description,
+  html .search .page-header .search-term,
+  html .search .page-header .page-description,
+  html .error404 .page-header .search-term,
+  html .error404 .page-header .page-description,
   html .site-title a:link,
   html .site-title a:visited,
   html .social-navigation ul.social-links-menu li a {
@@ -311,41 +366,8 @@ html #colophon .site-info .privacy-policy-link {
     color: var(--txt-color-darker);
   }
 
-  body {
-    background-color: var(--bg-color);
-    color: var(--txt-color);
-  }
-
-  textarea {
-    color: #111;
-  }
-
-  /* Table */
-  html .entry-content table tr:nth-child(odd) {
-    background: var(--bg-color-lighter);
-  }
-
-  html .quicktags-toolbar {
-    background: var(--bg-color-lighter);
-    background-image: var(--bg-color));
-    background-image: linear-gradient(bottom, var(--bg-color-lighter), var(--bg-color));
-  }
-
   html .quicktags-toolbar input:hover {
     color: var(--txt-color);
-  }
-
-  html .button:hover, button:hover,
-  html input[type="button"]:hover,
-  html input[type="reset"]:hover,
-  html input[type="submit"]:hover,
-  html .comment-list .comment-reply-link:hover,
-  html .comment-list .comment-reply-link:active {
-    background: var(--highlight-color-lighter);
-  }
-
-  html .comment-list a .comment-author-link html .comment-list a {
-    transition: unset ! important;
   }
 
   input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"],
@@ -359,24 +381,9 @@ html #colophon .site-info .privacy-policy-link {
     color: var(--highlight-color);
   }
 
-  html li.lastcommented a {
-    color: var(--txt-color);
-  }
-
-  ::-moz-selection {
+  html ::-moz-selection,
+  html ::selection {
     background-color: var(--highlight-color);
-  }
-
-  ::selection {
-    background-color: var(--highlight-color);
-  }
-
-  html div.shortscore {
-    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark.png');
-  }
-
-  html .single .type-game div.shortscore {
-    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@2x.png');
   }
 
   html .entry .entry-content.excerpt-text a:not(.readmorelink),
@@ -384,13 +391,74 @@ html #colophon .site-info .privacy-policy-link {
     color: var(--txt-color);
   }
 
+  /* Dark Mode Comment reply link */
+  html .comment-list .comment-reply-link,
+  html input[type="submit"] {
+    transition: unset;
+    color: var(--bg-color);
+    background: var(--highlight-color);
+  }
+
+  html .comment-list .comment-reply-link:hover,
+  html .comment-list .comment-reply-link:active,
+  input[type="submit"]:hover {
+    background: var(--highlight-color-selected);
+  }
+
+  /* Dark Mode Table*/
+  html .entry-content table tr:nth-child(odd) {
+    background: var(--bg-color-lighter);
+  }
+
+  /* Dark Mode Recent Comments Fix */
+  html .comment-list a .comment-author-link html .comment-list a {
+    transition: unset ! important;
+  }
+
+  /* Dark Mode Quicktags Fix */
+  html .quicktags-toolbar {
+    background: var(--bg-color-lighter);
+    background-image: var(--bg-color);
+    background-image: linear-gradient(bottom, var(--bg-color-lighter), var(--bg-color));
+    border-bottom: 0;
+  }
+
+  html .wp-block-code {
+    border-top: 0.3em solid var(--highlight-color);
+  }
+
+  html .quicktags-toolbar input:hover {
+    background: var(--bg-color-lighter);
+  }
+
+  /* Dark Mode Approved Fix */
+  html .byuser>.comment-body>.comment-meta>.comment-author .fn:after,
+  html .marctv-verified:after {
+    background: var(--highlight-color);
+    color: var(--bg-color);
+  }
+
+  /* Dark Mode SHORTSCORE Fix */
+  html .type-game .shortscore-hreview .text,
+  html .single .type-game .shortscore {
+    background-color: var(--highlight-color);
+  }
+
+  html div.shortscore {
+    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000.png');
+  }
+
+  html .single .type-game div.shortscore {
+    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000@2x.png');
+  }
+
   @media only screen and (min-resolution: 192dpi), only screen and (min-device-pixel-ratio: 2) {
     html div.shortscore {
-      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@2x.png');
+      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000@2x.png');
     }
 
     html .single .type-game div.shortscore {
-      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-dark@4x.png');
+      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000@4x.png');
     }
   }
 }
