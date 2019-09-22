@@ -340,6 +340,20 @@ html #colophon .site-info .privacy-policy-link {
     color: var(--highlight-color-selected);
   }
 
+  html .entry-content .warning{
+    background-color: var(--bg-color-lighter);
+    color: var(--txt-color);
+    border-color: var(--bg-color-lighter);
+  }
+
+  html .entry-content .warning a {
+    color: var(--highlight-color);
+  }
+
+  html .entry-content .warning a:hover {
+    color: var(--highlight-color-selected);
+  }
+
   html .wp-block-image figcaption,
   html .wp-block-video figcaption,
   html .wp-block-gallery figcaption,
