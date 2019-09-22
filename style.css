@@ -420,9 +420,13 @@ html #colophon .site-info .privacy-policy-link {
   }
 
   /* Dark Mode Table*/
-  html .entry-content table tr:nth-child(odd) {
+  html .entry-content table tr:nth-child(odd),
+  html .wp-block-table.is-style-stripes.has-subtle-light-gray-background-color tr:nth-child(odd),
+  html .wp-block-table.is-style-stripes tr:nth-child(odd) {
     background: var(--bg-color-lighter);
   }
+
+
 
   /* Dark Mode Recent Comments Fix */
   html .comment-list a .comment-author-link html .comment-list a {
