@@ -426,6 +426,10 @@ html #colophon .site-info .privacy-policy-link {
     background: var(--bg-color-lighter);
   }
 
+  html .wp-block-table.is-style-stripes {
+    border-bottom: none;
+  }
+
 
 
   /* Dark Mode Recent Comments Fix */
