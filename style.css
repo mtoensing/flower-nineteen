@@ -270,9 +270,12 @@ html #colophon .site-info .privacy-policy-link {
   box-shadow: 5px 5px 9px #558;
 }
 
+
+
+
+
 /* DARK MODE */
-/* DARK MODE */
-/* DARK MODE */
+
 /* Define variables */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -280,8 +283,8 @@ html #colophon .site-info .privacy-policy-link {
     --bg-color-lighter: #333;
     --txt-color: #efefef;
     --txt-color-darker: #aaa;
-    --highlight-color: #5a91f6;
-    --highlight-color-selected: #216efb;
+    --highlight-color: #337EB9;
+    --highlight-color-selected: #1396fd;
     /*
     --highlight-color: DeepPink;
     --highlight-color-selected: Pink;
@@ -371,7 +374,9 @@ html #colophon .site-info .privacy-policy-link {
   html .error404 .page-header .page-description,
   html .site-title a:link,
   html .site-title a:visited,
-  html .social-navigation ul.social-links-menu li a {
+  html .social-navigation ul.social-links-menu li a,
+  html .comment-form .comment-notes,
+  html .comment-form label {
     color: var(--txt-color);
   }
 
@@ -429,8 +434,6 @@ html #colophon .site-info .privacy-policy-link {
   html .wp-block-table.is-style-stripes {
     border-bottom: none;
   }
-
-
 
   /* Dark Mode Recent Comments Fix */
   html .comment-list a .comment-author-link html .comment-list a {
