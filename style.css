@@ -339,7 +339,8 @@ html #colophon .site-info .privacy-policy-link {
   html .comment-navigation .nav-next a:hover,
   html #cancel-comment-reply-link:hover,
   html .widget a:hover,
-  html li.lastcommented a:hover .comment-author-link {
+  html li.lastcommented a:hover .comment-author-link,
+  html .entry .entry-title a:hover {
     color: var(--highlight-color-selected);
   }
 
@@ -365,7 +366,8 @@ html #colophon .site-info .privacy-policy-link {
   html .wp-block-quote footer {
     color: var(--txt-color-darker);
   }
-
+  
+  html .entry-content .promoted-comment p a,
   html .archive .page-header .search-term,
   html .archive .page-header .page-description,
   html .search .page-header .search-term,
