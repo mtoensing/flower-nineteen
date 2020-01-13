@@ -361,12 +361,13 @@ html #colophon .site-info .privacy-policy-link {
   html .wp-block-image figcaption,
   html .wp-block-video figcaption,
   html .wp-block-gallery figcaption,
+  html .wp-block-embed figcaption,
   html .wp-block-quote__citation,
   html .wp-block-quote cite,
   html .wp-block-quote footer {
     color: var(--txt-color-darker);
   }
-  
+
   html .entry-content .promoted-comment p a,
   html .archive .page-header .search-term,
   html .archive .page-header .page-description,
