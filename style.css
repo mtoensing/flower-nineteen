@@ -171,6 +171,7 @@ li.lastcommented a:hover .comment-author-link {
 }
 
 li.lastcommented a {
+  transition: unset;
   color: #111;
 }
 
@@ -441,6 +442,16 @@ html #colophon .site-info .privacy-policy-link {
   /* Dark Mode Recent Comments Fix */
   html .comment-list a .comment-author-link html .comment-list a {
     transition: unset ! important;
+  }
+
+  /* Dark Mode Basic Recent Comment Widget */
+  html li.lastcommented a,
+  html li.lastcommented .dashicons-admin-comments:before {
+    color: var(--txt-color);
+  }
+
+  html li.lastcommented a:hover .dashicons-admin-comments:before {
+    color: var(--highlight-color-selected);
   }
 
   /* Dark Mode Quicktags Fix */
