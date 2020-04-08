@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 4.3
+Version: 4.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -416,7 +416,8 @@ html #colophon .site-info .privacy-policy-link {
 
   /* Dark Mode Comment reply link */
   html .comment-list .comment-reply-link,
-  html input[type="submit"] {
+  html input[type="submit"],
+  html input[type="submit"]:focus {
     transition: unset;
     color: var(--bg-color);
     background: var(--highlight-color);
