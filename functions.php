@@ -125,7 +125,7 @@ function the_excerpt_more_link($excerpt)
             ),
             get_the_title()
         );
-    $excerpt .= '<a class="readmorelink" href="'. get_permalink($post->ID) .'">' . $readmore . '</a>.';
+    $excerpt .= '<a class="readmorelink" href="'. get_permalink($post->ID) .'">' . $readmore . '</a>';
     return $excerpt;
 }
 add_filter('the_excerpt', 'the_excerpt_more_link', 21);
