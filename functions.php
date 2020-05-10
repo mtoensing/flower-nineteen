@@ -1,5 +1,48 @@
 <?php
 
+function bm_get_post_gallery( $gallery, $post ) {
+
+	// Already found a gallery so lets quit.
+	if ( $gallery ) {
+		return $gallery;
+	}
+
+	// Check the post exists.
+	$post = get_post( $post );
+	if ( ! $post ) {
+		return $gallery;
+	}
+
+	// Not using Gutenberg so let's quit.
+	if ( ! function_exists( 'has_blocks' ) ) {
+		return $gallery;
+	}
+
+	// Not using blocks so let's quit.
+	if ( ! has_blocks( $post->post_content ) ) {
+		return $gallery;
+	}
+
+	/**
+	 * Search for gallery blocks and then, if found, return the html from the
+	 * first gallery block.
+	 *
+	 * Thanks to Gabor for help with the regex:
+	 * https://twitter.com/javorszky/status/1043785500564381696.
+	 */
+	$pattern = "/<!--\ wp:gallery.*-->([\s\S]*?)<!--\ \/wp:gallery -->/i";
+	preg_match_all( $pattern, $post->post_content, $the_galleries );
+	// Check a gallery was found and if so change the gallery html.
+	if ( ! empty( $the_galleries[1] ) ) {
+		$gallery = reset( $the_galleries[1] );
+	}
+
+	return $gallery;
+
+}
+
+add_filter( 'get_post_gallery', 'bm_get_post_gallery', 10, 2 );
+
 add_action('after_setup_theme', 'flower_theme_setup', 111);
 
 function flower_theme_setup()
@@ -36,21 +79,19 @@ function get_gallery_list()
     $html      = '';
 
     while ($the_query->have_posts()) :
+
         $the_query->the_post();
-    $title 		= '';
-    $pid         = get_the_ID();
-    $post_title       = get_the_title($gid);
-    $result =  get_post_meta($pid, "_shortscore_result", true);
-    $result = json_decode(json_encode($result));
-    if (isset($result->game) and isset($result->game->title)) {
-        $title =  $result->game->title;
-    }
+        $title 		= '';
+        $pid = get_the_ID();
+        $post_title  = get_the_title($pid);
+        $result =  get_post_meta($pid, "_shortscore_result", true);
 
-    if ($title != '' and get_post_gallery()) :
-            echo '<h2><a href="' . get_permalink() . '">'. $title . '</a></h2>';
-    echo get_post_gallery();
-    endif;
-
+        if (isset($result->game) and isset($result->game->title)) {
+            $title =  $result->game->title;
+            echo '<h2>' . $title . '</h2>';
+            echo get_post_gallery($pid);
+						echo '<a href="' . get_permalink() . '">Zum Artikel "' . $title . '"</a>';
+        }
 
     endwhile;
 
