@@ -5,7 +5,9 @@ function flowerfield_recent_posts(){
 	$cpid = get_the_ID();
 	$excludes[] = $cpid;
 	$related_posts_array = array();
-	$related_posts = yarpp_get_related(array(),$cpid);
+	if ( function_exists( 'yarpp_get_related' ) ) {
+		$related_posts = yarpp_get_related(array(),$cpid);
+	}
 
 	foreach ($related_posts as $posts) {
 		$related_posts_array[] = $posts->ID;
