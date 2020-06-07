@@ -4,6 +4,14 @@ function flowerfield_recent_posts(){
 
 	$cpid = get_the_ID();
 	$excludes[] = $cpid;
+	$related_posts_array = array();
+	$related_posts = yarpp_get_related(array(),$cpid);
+
+	foreach ($related_posts as $posts) {
+		$related_posts_array[] = $posts->ID;
+	}
+
+	$excludes = array_merge($excludes,$related_posts_array);
 
 	$args = array(
 			'post_type'      => 'post',
