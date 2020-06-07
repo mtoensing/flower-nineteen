@@ -48,6 +48,10 @@ get_header();
 				if ( function_exists( 'related_posts' ) ) {
 					related_posts();
 				}
+				/* Field of Flowers Recent Posts */
+				if ( function_exists( 'flowerfield_recent_posts' ) ) {
+					flowerfield_recent_posts();
+				}
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) {

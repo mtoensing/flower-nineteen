@@ -1,6 +1,49 @@
 <?php
 
-function bm_get_post_gallery( $gallery, $post ) {
+function flowerfield_recent_posts(){
+	$args = array(
+			'post_type'      => 'post',
+			'post_status' 	 => 'publish',
+			'posts_per_page' => '4',
+			'order'          => 'DESC'
+	);
+	$i = 0;
+	$the_query = new WP_Query($args); ?>
+
+	<div class="teaserbox-wrapper recentpostsbox">
+	<div class="teaserbox" style="display: block;">
+		<h3 class="teaserbox-headline"><em>Neue Beiträge</em></h3>
+		<div class="teaserbox-items teaserbox-items-visual teaserbox-grid ">
+
+	<?php while ($the_query->have_posts()) :
+
+			$the_query->the_post();
+
+			if (has_post_thumbnail()):?>
+				<?php
+					$size = "yarpp";
+					$size_retina = "yarpp-retina";
+				?>
+				<?php $permalink = get_the_permalink(); ?>
+						<div class="teaserbox-post teaserbox-post<?php echo $i?> teaserbox-post-thumbs">
+								<a class="teaserbox-post-a" href="<?php echo $permalink; ?>" title="<?php the_title_attribute(); ?>" rel="nofollow" >
+								<img loading="lazy" src="<?php the_post_thumbnail_url($size); ?>" srcset="<?php the_post_thumbnail_url($size_retina); ?> 2x">
+								</a>
+								<h4 data-date="<?php the_date(); ?>" class="teaserbox-post-title">
+										<a class="teaserbox-post-a" href="<?php echo $permalink; ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+								</h4>
+						</div>
+				<?php $i++ ?>
+			<?php endif; ?>
+	<?php endwhile; ?>
+	</div>
+	</div>
+	</div>
+
+<?php }
+
+
+function flowerfield_get_post_gallery( $gallery, $post ) {
 
 	// Already found a gallery so lets quit.
 	if ( $gallery ) {
@@ -41,7 +84,7 @@ function bm_get_post_gallery( $gallery, $post ) {
 
 }
 
-add_filter( 'get_post_gallery', 'bm_get_post_gallery', 10, 2 );
+add_filter( 'get_post_gallery', 'flowerfield_get_post_gallery', 10, 2 );
 
 add_action('after_setup_theme', 'flower_theme_setup', 111);
 
