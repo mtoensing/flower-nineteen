@@ -1,10 +1,15 @@
 <?php
 
 function flowerfield_recent_posts(){
+
+	$cpid = get_the_ID();
+	$excludes[] = get_the_ID();
+
 	$args = array(
 			'post_type'      => 'post',
 			'post_status' 	 => 'publish',
 			'posts_per_page' => '4',
+			'post__not_in'   => $excludes,
 			'order'          => 'DESC'
 	);
 	$i = 0;
@@ -18,7 +23,6 @@ function flowerfield_recent_posts(){
 	<?php while ($the_query->have_posts()) :
 
 			$the_query->the_post();
-
 			if (has_post_thumbnail()):?>
 				<?php
 					$size = "yarpp";
