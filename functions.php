@@ -3,7 +3,7 @@
 function flowerfield_recent_posts(){
 
 	$cpid = get_the_ID();
-	$excludes[] = get_the_ID();
+	$excludes[] = $cpid;
 
 	$args = array(
 			'post_type'      => 'post',
