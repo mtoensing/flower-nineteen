@@ -1,44 +1,41 @@
 <?php
 
-function flowerfield_recent_posts(){
+function flowerfield_recent_posts()
+{
+    $cpid = get_the_ID();
+    $excludes[] = $cpid;
+    $related_posts_array = array();
+    if (function_exists('yarpp_get_related')) {
+        $related_posts = yarpp_get_related(array(), $cpid);
+    }
 
-	$cpid = get_the_ID();
-	$excludes[] = $cpid;
-	$related_posts_array = array();
-	if ( function_exists( 'yarpp_get_related' ) ) {
-		$related_posts = yarpp_get_related(array(),$cpid);
-	}
+    foreach ($related_posts as $posts) {
+        $related_posts_array[] = $posts->ID;
+    }
 
-	foreach ($related_posts as $posts) {
-		$related_posts_array[] = $posts->ID;
-	}
+    $excludes = array_merge($excludes, $related_posts_array);
 
-	$excludes = array_merge($excludes,$related_posts_array);
-
-	$args = array(
-			'post_type'      => 'post',
-			'post_status' 	 => 'publish',
-			'posts_per_page' => '4',
-			'post__not_in'   => $excludes,
-			'order'          => 'DESC'
-	);
-	$i = 0;
-	$the_query = new WP_Query($args); ?>
+    $args = array(
+            'post_type'      => 'post',
+            'post_status' 	 => 'publish',
+            'posts_per_page' => '4',
+            'post__not_in'   => $excludes,
+            'order'          => 'DESC'
+    );
+    $i = 0;
+    $the_query = new WP_Query($args); ?>
 
 	<div class="teaserbox-wrapper recentpostsbox">
 	<div class="teaserbox" style="display: block;">
 		<h3 class="teaserbox-headline"><em>Neue Beiträge</em></h3>
 		<div class="teaserbox-items teaserbox-items-visual teaserbox-grid ">
-
-	<?php while ($the_query->have_posts()) :
-
-			$the_query->the_post();
-			if (has_post_thumbnail()):?>
-				<?php
-					$size = "yarpp";
-					$size_retina = "yarpp-retina";
-				?>
-				<?php $permalink = get_the_permalink(); ?>
+	  <?php while ($the_query->have_posts()) :
+      $the_query->the_post();
+      if (has_post_thumbnail()):?>
+			<?php
+      $size = "yarpp";
+      $size_retina = "yarpp-retina"; ?>
+			<?php $permalink = get_the_permalink(); ?>
 						<div class="teaserbox-post teaserbox-post<?php echo $i?> teaserbox-post-thumbs">
 								<a class="teaserbox-post-a" href="<?php echo $permalink; ?>" title="<?php the_title_attribute(); ?>" rel="nofollow" >
 								<img loading="lazy" src="<?php the_post_thumbnail_url($size); ?>" srcset="<?php the_post_thumbnail_url($size_retina); ?> 2x">
@@ -49,56 +46,58 @@ function flowerfield_recent_posts(){
 						</div>
 				<?php $i++ ?>
 			<?php endif; ?>
-	<?php endwhile; ?>
+	 <?php endwhile; ?>
+   <?php wp_reset_postdata(); ?>
+	 </div>
 	</div>
 	</div>
-	</div>
 
-<?php }
-
-
-function flowerfield_get_post_gallery( $gallery, $post ) {
-
-	// Already found a gallery so lets quit.
-	if ( $gallery ) {
-		return $gallery;
-	}
-
-	// Check the post exists.
-	$post = get_post( $post );
-	if ( ! $post ) {
-		return $gallery;
-	}
-
-	// Not using Gutenberg so let's quit.
-	if ( ! function_exists( 'has_blocks' ) ) {
-		return $gallery;
-	}
-
-	// Not using blocks so let's quit.
-	if ( ! has_blocks( $post->post_content ) ) {
-		return $gallery;
-	}
-
-	/**
-	 * Search for gallery blocks and then, if found, return the html from the
-	 * first gallery block.
-	 *
-	 * Thanks to Gabor for help with the regex:
-	 * https://twitter.com/javorszky/status/1043785500564381696.
-	 */
-	$pattern = "/<!--\ wp:gallery.*-->([\s\S]*?)<!--\ \/wp:gallery -->/i";
-	preg_match_all( $pattern, $post->post_content, $the_galleries );
-	// Check a gallery was found and if so change the gallery html.
-	if ( ! empty( $the_galleries[1] ) ) {
-		$gallery = reset( $the_galleries[1] );
-	}
-
-	return $gallery;
-
+<?php
 }
 
-add_filter( 'get_post_gallery', 'flowerfield_get_post_gallery', 10, 2 );
+
+function flowerfield_get_post_gallery($gallery, $post)
+{
+
+    // Already found a gallery so lets quit.
+    if ($gallery) {
+        return $gallery;
+    }
+
+    // Check the post exists.
+    $post = get_post($post);
+    if (! $post) {
+        return $gallery;
+    }
+
+    // Not using Gutenberg so let's quit.
+    if (! function_exists('has_blocks')) {
+        return $gallery;
+    }
+
+    // Not using blocks so let's quit.
+    if (! has_blocks($post->post_content)) {
+        return $gallery;
+    }
+
+    /**
+     * Search for gallery blocks and then, if found, return the html from the
+     * first gallery block.
+     *
+     * Thanks to Gabor for help with the regex:
+     * https://twitter.com/javorszky/status/1043785500564381696.
+     */
+    $pattern = "/<!--\ wp:gallery.*-->([\s\S]*?)<!--\ \/wp:gallery -->/i";
+    preg_match_all($pattern, $post->post_content, $the_galleries);
+    // Check a gallery was found and if so change the gallery html.
+    if (! empty($the_galleries[1])) {
+        $gallery = reset($the_galleries[1]);
+    }
+
+    return $gallery;
+}
+
+add_filter('get_post_gallery', 'flowerfield_get_post_gallery', 10, 2);
 
 add_action('after_setup_theme', 'flower_theme_setup', 111);
 
@@ -137,21 +136,21 @@ function get_gallery_list()
 
     while ($the_query->have_posts()) :
 
-        $the_query->the_post();
-        $title 		= '';
-        $pid = get_the_ID();
-        $post_title  = get_the_title($pid);
-        $result =  get_post_meta($pid, "_shortscore_result", true);
+    $the_query->the_post();
+    $title 		= '';
+    $pid = get_the_ID();
+    $post_title  = get_the_title($pid);
+    $result =  get_post_meta($pid, "_shortscore_result", true);
 
-        if (isset($result->game) and isset($result->game->title)) {
-            $title =  $result->game->title;
-            echo '<h2>' . $title . '</h2>';
-            echo get_post_gallery($pid);
-						echo '<a href="' . get_permalink() . '">Zum Artikel "' . $title . '"</a>';
-        }
+    if (isset($result->game) and isset($result->game->title)) {
+        $title =  $result->game->title;
+        echo '<h2>' . $title . '</h2>';
+        echo get_post_gallery($pid);
+        echo '<a href="' . get_permalink() . '">Zum Artikel "' . $title . '"</a>';
+    }
 
     endwhile;
-
+    wp_reset_postdata();
     return $html;
 }
 
@@ -172,7 +171,7 @@ function get_shortscore_list()
     $score     = '';
 
     while ($the_query->have_posts()) :
-        $the_query->the_post();
+    $the_query->the_post();
     $result =  get_post_meta(get_the_ID(), "_shortscore_result", true);
     $result = json_decode(json_encode($result));
     if (isset($result->game) and isset($result->game->title)) {
@@ -196,6 +195,7 @@ function get_shortscore_list()
 
     $score = $shortscore;
     endwhile;
+    wp_reset_postdata();
 
     return $html;
 }

@@ -48,6 +48,7 @@ get_header();
 				if ( function_exists( 'related_posts' ) ) {
 					related_posts();
 				}
+				
 				/* Field of Flowers Recent Posts */
 				if ( function_exists( 'flowerfield_recent_posts' ) ) {
 					flowerfield_recent_posts();
