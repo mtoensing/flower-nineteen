@@ -144,9 +144,8 @@ function get_gallery_list()
 
     if (isset($result->game) and isset($result->game->title)) {
         $title =  $result->game->title;
-        echo '<h2>' . $title . '</h2>';
+        echo '<h2><a href="' . get_permalink() . '">' . $title . '</a></h2>';
         echo get_post_gallery($pid);
-        echo '<a href="' . get_permalink() . '">Zum Artikel "' . $title . '"</a>';
     }
 
     endwhile;
