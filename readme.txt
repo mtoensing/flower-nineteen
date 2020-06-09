@@ -4,7 +4,7 @@ Tags: one-column, darkmode, dark mode, flexible-header, accessibility-ready, cus
 Requires at least: 4.9.6
 Tested up to: WordPress 5.0
 Requires PHP: 5.2.4
-Stable tag: 4.9
+Stable tag: 5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
