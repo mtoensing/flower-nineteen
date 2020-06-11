@@ -234,7 +234,7 @@ function flower_theme_setup()
 {
     add_image_size('yarpp', 460, 200, true); // yarpp image
     add_image_size('yarpp-retina', 920, 400, true); // yarpp image
-    set_post_thumbnail_size(1920, 9999);
+    set_post_thumbnail_size(1416, 9999);
 }
 
 add_filter('jpeg_quality', function ($arg) {
