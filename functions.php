@@ -1,5 +1,134 @@
 <?php
 
+add_filter( 'wp_calculate_image_srcset', 'flower_custom_image_srcset', 10, 5);
+
+function flower_custom_image_srcset($sources, $size_array, $image_src, $image_meta, $attachment_id) {
+    // The following code is an adaption from wp-includes/media.php:1061-1180
+    $image_sizes = $image_meta['sizes'];
+
+    // Get the width and height of the image.
+    $image_width = (int) $size_array[0];
+    $image_height = (int) $size_array[1];
+
+    $image_basename = wp_basename( $image_meta['file'] );
+
+    /*
+     * WordPress flattens animated GIFs into one frame when generating intermediate sizes.
+     * To avoid hiding animation in user content, if src is a full size GIF, a srcset attribute is not generated.
+     * If src is an intermediate size GIF, the full size is excluded from srcset to keep a flattened GIF from becoming animated.
+     */
+    if ( ! isset( $image_sizes['thumbnail']['mime-type'] ) || 'image/gif' !== $image_sizes['thumbnail']['mime-type'] ) {
+        $image_sizes[] = array(
+            'width'  => $image_meta['width'],
+            'height' => $image_meta['height'],
+            'file'   => $image_basename,
+        );
+    } elseif ( strpos( $image_src, $image_meta['file'] ) ) {
+        return false;
+    }
+
+    // Retrieve the uploads sub-directory from the full size image.
+    $dirname = _wp_get_attachment_relative_path( $image_meta['file'] );
+
+    if ( $dirname ) {
+        $dirname = trailingslashit( $dirname );
+    }
+
+    $upload_dir = wp_get_upload_dir();
+    $image_baseurl = trailingslashit( $upload_dir['baseurl'] ) . $dirname;
+
+    /*
+     * If currently on HTTPS, prefer HTTPS URLs when we know they're supported by the domain
+     * (which is to say, when they share the domain name of the current request).
+     */
+    if ( is_ssl() && 'https' !== substr( $image_baseurl, 0, 5 ) && parse_url( $image_baseurl, PHP_URL_HOST ) === $_SERVER['HTTP_HOST'] ) {
+        $image_baseurl = set_url_scheme( $image_baseurl, 'https' );
+    }
+
+    /*
+     * Images that have been edited in WordPress after being uploaded will
+     * contain a unique hash. Look for that hash and use it later to filter
+     * out images that are leftovers from previous versions.
+     */
+    $image_edited = preg_match( '/-e[0-9]{13}/', wp_basename( $image_src ), $image_edit_hash );
+
+    /**
+     * Filters the maximum image width to be included in a 'srcset' attribute.
+     *
+     * @since 4.4.0
+     *
+     * @param int   $max_width  The maximum image width to be included in the 'srcset'. Default '1600'.
+     * @param array $size_array Array of width and height values in pixels (in that order).
+     */
+    $max_srcset_image_width = apply_filters( 'max_srcset_image_width', 2000, $size_array );
+
+    // Array to hold URL candidates.
+    $sources = array();
+
+    /**
+     * To make sure the ID matches our image src, we will check to see if any sizes in our attachment
+     * meta match our $image_src. If no matches are found we don't return a srcset to avoid serving
+     * an incorrect image. See #35045.
+     */
+    $src_matched = false;
+
+    /*
+     * Loop through available images. Only use images that are resized
+     * versions of the same edit.
+     */
+    foreach ( $image_sizes as $identifier => $image ) {
+        // Continue if identifier is unwanted
+        if (!in_array($identifier, array('large','medium','thumbnail','post-thumbnail'))) {
+            continue;
+        }
+
+        $is_src = false;
+
+        // Check if image meta isn't corrupted.
+        if ( ! is_array( $image ) ) {
+            continue;
+        }
+
+        // If the file name is part of the `src`, we've confirmed a match.
+        if ( ! $src_matched && false !== strpos( $image_src, $dirname . $image['file'] ) ) {
+            $src_matched = $is_src = true;
+        }
+
+        // Filter out images that are from previous edits.
+        if ( $image_edited && ! strpos( $image['file'], $image_edit_hash[0] ) ) {
+            continue;
+        }
+
+        /*
+         * Filters out images that are wider than '$max_srcset_image_width' unless
+         * that file is in the 'src' attribute.
+         */
+        if ( $max_srcset_image_width && $image['width'] > $max_srcset_image_width && ! $is_src ) {
+            continue;
+        }
+
+        // If the image dimensions are within 1px of the expected size, use it.
+        if ( wp_image_matches_ratio( $image_width, $image_height, $image['width'], $image['height'] ) ) {
+            // Add the URL, descriptor, and value to the sources array to be returned.
+            $source = array(
+                'url'        => $image_baseurl . $image['file'],
+                'descriptor' => 'w',
+                'value'      => $image['width'],
+            );
+
+            // The 'src' image has to be the first in the 'srcset', because of a bug in iOS8. See #35030.
+            if ( $is_src ) {
+                $sources = array( $image['width'] => $source ) + $sources;
+            } else {
+                $sources[ $image['width'] ] = $source;
+            }
+        }
+    }
+
+    return $sources;
+}
+
+
 function flowerfield_recent_posts()
 {
     $cpid = get_the_ID();
