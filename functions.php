@@ -78,7 +78,7 @@ function flower_custom_image_srcset($sources, $size_array, $image_src, $image_me
      */
     foreach ( $image_sizes as $identifier => $image ) {
         // Continue if identifier is unwanted
-        if (!in_array($identifier, array('large','medium','thumbnail','post-thumbnail'))) {
+        if (!in_array($identifier, array('large','medium','medium-large','thumbnail','post-thumbnail','thumbnail','yarpp','yarpp-retina'))) {
             continue;
         }
 
@@ -234,6 +234,7 @@ function flower_theme_setup()
 {
     add_image_size('yarpp', 460, 200, true); // yarpp image
     add_image_size('yarpp-retina', 920, 400, true); // yarpp image
+    add_image_size('medium_large', 692, 376, true); // m image
     set_post_thumbnail_size(1416, 9999);
 }
 
