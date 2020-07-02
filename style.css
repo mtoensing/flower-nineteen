@@ -16,7 +16,9 @@ Text Domain: twentynineteen
 Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, threaded-comments, translation-ready
 */
 /* typography */
+
 #page,
+html #cookie-notice,
 html .type-game .shortscore-hreview .text,
 html .type-game .shortscore-hreview .rating,
 html .type-game .shortscore-hreview .link,
@@ -150,11 +152,11 @@ html nav.navigation.pagination {
 }
 
 /* warning box */
-.entry-content .warning {
-  background-color: #efefef;
-  padding: 0.3em 0.5em 0.6em;
-  border: 1px solid #d9dee0;
-  border-radius: .125rem;
+html .entry-content .warning {
+    background-color: #f9bfbf;
+    padding: 0.3em 0.5em 0.6em;
+    border: 1px solid #f7a5a5;
+    border-radius: .125rem;
 }
 
 .entry-content .warning a {
@@ -201,6 +203,11 @@ li.lastcommented a {
 
 .page-template-show-galleries .gallery-icon .gallery-caption .gallery-caption {
   padding: 0;
+}
+
+html .wp-block-table figcaption,
+html .wp-block-video figcaption {
+    font-size: 0.71111em;
 }
 
 .page-template-show-galleries .gallery {
@@ -325,7 +332,8 @@ html #colophon .site-info .privacy-policy-link {
   html .entry-content .warning{
     background-color: var(--bg-color-lighter);
     color: var(--txt-color);
-    border-color: var(--bg-color-lighter);
+    background-color: #ad0606;
+    border: 1px solid #bf0000;
   }
 
   html .entry-content .warning a {
@@ -697,4 +705,16 @@ html #colophon .site-info .privacy-policy-link {
         max-width: 100%;
         margin-right: 0
     }
+}
+
+/* featured image height */
+
+.site-header.featured-image {
+		min-height: 80vh;
+}
+
+@media only screen and (max-width:768px) {
+		html .site-header.featured-image {
+				min-height: 60vh;
+		}
 }

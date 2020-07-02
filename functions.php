@@ -1,5 +1,12 @@
 <?php
 
+add_filter( 'comment_form_defaults', 'remove_pre_comment_text' );
+
+function remove_pre_comment_text( $arg ) {
+  $arg['comment_notes_before'] = "";
+  return $arg;
+}
+
 add_filter( 'wp_calculate_image_srcset', 'flower_custom_image_srcset', 10, 5);
 
 function flower_custom_image_srcset($sources, $size_array, $image_src, $image_meta, $attachment_id) {
