@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 5.0
+Version: 5.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -717,4 +717,45 @@ html #colophon .site-info .privacy-policy-link {
 		html .site-header.featured-image {
 				min-height: 60vh;
 		}
+}
+
+
+/* mail poet widget */
+
+.widget_mailpoet_form {
+	width: 100% ! important;
+	background: #f5f5f5;
+	padding: 0.3em;
+  border-radius: 0.2em;
+}
+
+.widget_mailpoet_form .widget-title:before{
+	content: none;
+}
+
+.widget_mailpoet_form .widget-title {
+	padding-left: 0.3em;
+}
+
+.mailpoet_page .entry-meta {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .widget_mailpoet_form {
+  	background: #003f77;
+  }
+}
+
+/* simpletoc */
+
+@media only screen and (max-width:768px) {
+.simpletoc li ul {
+ margin-left: 0;
+ padding-left: 0.8em;
+
+}
+	.simpletoc{
+		 font-size: 90%;
+	}
 }
