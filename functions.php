@@ -1,5 +1,20 @@
 <?php
 
+add_action('restrict_manage_posts', 'rudr_filter_by_the_author');
+
+function rudr_filter_by_the_author() {
+	$params = array(
+		'name' => 'author', // this is the "name" attribute for filter <select>
+		'show_option_all' => 'All authors' // label for all authors (display posts without filter)
+	);
+
+	if ( isset($_GET['user']) )
+		$params['selected'] = $_GET['user']; // choose selected user by $_GET variable
+
+	wp_dropdown_users( $params ); // print the ready author list
+}
+
+
 add_filter( 'comment_form_defaults', 'remove_pre_comment_text' );
 
 function remove_pre_comment_text( $arg ) {
@@ -141,9 +156,12 @@ function flowerfield_recent_posts()
     $cpid = get_the_ID();
     $excludes[] = $cpid;
     $related_posts_array = array();
+
     if (function_exists('yarpp_get_related')) {
-        $related_posts = yarpp_get_related(array(), $cpid);
-    }
+    	$related_posts = yarpp_get_related(array(), $cpid);
+    } else {
+			return;
+		}
 
     foreach ($related_posts as $posts) {
         $related_posts_array[] = $posts->ID;
