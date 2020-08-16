@@ -450,6 +450,10 @@ html #colophon .site-info .privacy-policy-link {
     border-bottom: 0;
   }
 
+  html .quicktags-toolbar input:hover {
+    color: var(--bg-color-lighter);
+  }
+
   html .wp-block-code {
     border-top: 0.3em solid var(--highlight-color);
   }
