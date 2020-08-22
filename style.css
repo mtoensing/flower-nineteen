@@ -332,8 +332,8 @@ html #colophon .site-info .privacy-policy-link {
   html .entry-content .warning{
     background-color: var(--bg-color-lighter);
     color: var(--txt-color);
-    background-color: #ad0606;
-    border: 1px solid #bf0000;
+    background-color: #5a0101;
+    border: 1px solid #7d0000;
   }
 
   html .entry-content .warning a {
