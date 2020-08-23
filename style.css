@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 5.3
+Version: 5.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -153,10 +153,10 @@ html nav.navigation.pagination {
 
 /* warning box */
 html .entry-content .warning {
-    background-color: #f9bfbf;
-    padding: 0.3em 0.5em 0.6em;
-    border: 1px solid #f7a5a5;
-    border-radius: .125rem;
+  background-color: #ea9999;
+  padding: 0.3em 0.5em 0.6em;
+  border: 2px solid #e06666;
+  border-radius: .125rem;
 }
 
 .entry-content .warning a {
@@ -333,7 +333,7 @@ html #colophon .site-info .privacy-policy-link {
     background-color: var(--bg-color-lighter);
     color: var(--txt-color);
     background-color: #5a0101;
-    border: 1px solid #7d0000;
+    border: 2px solid #900200;
   }
 
   html .entry-content .warning a {
