@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 5.5
+Version: 5.6
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -498,12 +498,13 @@ html #colophon .site-info .privacy-policy-link {
 
 #main .teaserbox-wrapper, #main .yarpp-related {
     width: 100%;
-    max-width: 1480px;
     margin-left: auto;
     margin-right: auto;
     clear: both;
-    padding-left: 1em;
-    padding-right: 1em
+    flex-direction: row;
+
+    margin: 0 calc(10% + 60px);
+    max-width: calc(6 * (150vw / 12) - 28px);
 }
 
 #main .teaserbox-wrapper img, #main .yarpp-related img {
@@ -695,6 +696,13 @@ html #colophon .site-info .privacy-policy-link {
     .teaserbox .teaserbox-items-visual {
         margin-right: 20px
     }
+
+    #main .teaserbox-wrapper, #main .yarpp-related {
+        margin: auto;
+        max-width: 640px;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
 }
 
 @media only screen and (max-width:320px) {
@@ -708,6 +716,13 @@ html #colophon .site-info .privacy-policy-link {
         float: none;
         max-width: 100%;
         margin-right: 0
+    }
+
+    #main .teaserbox-wrapper, #main .yarpp-related {
+        margin: auto;
+        max-width: 320px;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 }
 
