@@ -182,7 +182,8 @@ li.lastcommented a {
   display: none;
 }
 
-.home .menu-social-container {
+.home .menu-social-container,
+.page-template-default .menu-social-container {
   display: block;
 }
 
