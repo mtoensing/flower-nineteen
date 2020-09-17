@@ -200,6 +200,7 @@ function flowerfield_recent_posts()
 						</div>
 				<?php $i++ ?>
 			<?php endif; ?>
+	 <?php if( $i > 3 ) { break; } ?>
 	 <?php endwhile; ?>
    <?php wp_reset_postdata(); ?>
 	 </div>
