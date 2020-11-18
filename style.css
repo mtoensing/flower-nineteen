@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 6.1
+Version: 6.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -476,29 +476,16 @@ html #colophon .site-info .privacy-policy-link {
     background-color: var(--highlight-color);
   }
 
-  html div.shortscore {
-    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000.png');
-    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000.svg'),linear-gradient(transparent, transparent);
 
-  }
-
-  html .single .type-game div.shortscore {
-    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000@2x.png');
-    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000.svg'),linear-gradient(transparent, transparent);
-
+  html .type-game div.shortscore {
+    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000@2x.png?v=6.7');
+    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000.svg?v=6.7'),linear-gradient(transparent, transparent);
   }
 
   @media only screen and (min-resolution: 192dpi), only screen and (min-device-pixel-ratio: 2) {
-    html div.shortscore {
-      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000@2x.png');
-      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000.svg'),linear-gradient(transparent, transparent);
-
-
-    }
-
-    html .single .type-game div.shortscore {
-      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000@4x.png');
-      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000.svg'),linear-gradient(transparent, transparent);
+    html .type-game div.shortscore {
+      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000@4x.png?v=6.7');
+      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-000.svg?v=6.7'),linear-gradient(transparent, transparent);
 
     }
   }
