@@ -1,5 +1,11 @@
 <?php
 
+add_filter( 'rfi_rss_image_size', 'thumbnail_size_for_rss', 10, 1 );
+
+function thumbnail_size_for_rss( $default ) {
+	return 'medium_large';
+}
+
 add_action('restrict_manage_posts', 'rudr_filter_by_the_author');
 
 function rudr_filter_by_the_author() {
