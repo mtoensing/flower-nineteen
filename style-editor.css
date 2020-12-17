@@ -1,6 +1,23 @@
+.warning,
+.notice {
+  padding: 0.3em 0.4em 0.3em;
+  border-radius: .125rem;
+  border: 1px solid;
+  border-left-width: 4px;
+}
+
+.warning a,
+.notice a{
+  color: #111;
+}
+
+ .notice {
+  background-color: #68c3ff;
+  border-color: #4085a7;
+
+}
+
 .warning {
   background-color: #ea9999;
-  padding: 0.3em 0.5em 0.6em;
-  border: 2px solid #e06666;
-  border-radius: .125rem;
+  border-color: #e06666;
 }

@@ -152,16 +152,31 @@ html nav.navigation.pagination {
   margin-top: 3em;
 }
 
-/* warning box */
-html .entry-content .warning {
-  background-color: #ea9999;
-  padding: 0.3em 0.5em 0.6em;
-  border: 2px solid #e06666;
+/* warning and notice bright box */
+html .entry-content .warning,
+html .entry-content .notice {
+  padding: 0.3em 0.4em 0.3em;
   border-radius: .125rem;
+  border: 1px solid;
+  border-left-width: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.04);
 }
 
-.entry-content .warning a {
+html .entry-content .warning a,
+html .entry-content .notice a {
   color: #111;
+}
+
+
+html .entry-content .notice {
+  background-color: #68c3ff;
+  border-color: #4085a7;
+
+}
+
+html .entry-content .warning {
+  background-color: #ea9999;
+  border-color: #e06666;
 }
 
 /* Last commented */
@@ -331,20 +346,27 @@ html #colophon .site-info .privacy-policy-link {
     color: var(--highlight-color-selected);
   }
 
+/* Dark notice warning */
   html .entry-content .warning{
-    background-color: var(--bg-color-lighter);
     color: var(--txt-color);
     background-color: #5a0101;
-    border: 2px solid #900200;
+    border-color: #900200;
   }
 
-  html .entry-content .warning a {
-    color: var(--highlight-color);
+  html .entry-content .notice {
+    color: #fff;
+    background-color: #0468ad;
+    border-color: #2783bf;
   }
 
-  html .entry-content .warning a:hover {
-    color: var(--highlight-color-selected);
+  html .entry-content .warning a,
+  html .entry-content .notice a {
+    color: #fff;
   }
+
+
+
+
 
 
   html .wp-block-table figcaption,
