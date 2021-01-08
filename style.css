@@ -104,7 +104,7 @@ html .single .type-game .shortscore {
 /* links */
 .entry .entry-content a[href*='=087022']:after,
 .entry .entry-content a[href*='/out/']:after {
-  content: "\2197";
+  /* content: "\2197"; */
   line-height: 0;
   position: relative;
   vertical-align: baseline;
