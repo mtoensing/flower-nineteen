@@ -24,6 +24,7 @@ html .type-game .shortscore-hreview .text,
 html .type-game .shortscore-hreview .rating,
 html .type-game .shortscore-hreview .link,
 html .shortscore-widget a,
+html figcaption,
 html .search-field,
 html .taxonomy-description,
 html .archive .page-header .page-title,
@@ -33,6 +34,10 @@ html .pswp,
 html .pswp__caption__center,
 html .page-template-sortbyreview .entry-content ul {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+html .wp-block-embed figcaption {
+    font-size: 0.71111em;
 }
 
 html .container-lazyload .titletext {
