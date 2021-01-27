@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 7.0
+Version: 8.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -110,7 +110,7 @@ html .type-game .shortscore-hreview .link {
 
 html .type-game .shortscore-hreview .text,
 html .single .type-game .shortscore {
-  background-color: #337EB9;
+
 }
 
 /* links */
@@ -506,25 +506,9 @@ html #colophon .site-info .privacy-policy-link {
     color: var(--bg-color);
   }
 
-  /* Dark Mode SHORTSCORE Fix */
-  html .type-game .shortscore-hreview .text,
-  html .single .type-game .shortscore {
-    background-color: var(--highlight-color);
-  }
 
 
-  html .type-game div.shortscore {
-    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-141414@2x.png?v=7.0');
-    background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-141414.svg?v=7.0'),linear-gradient(transparent, transparent);
-  }
 
-  @media only screen and (min-resolution: 192dpi), only screen and (min-device-pixel-ratio: 2) {
-    html .type-game div.shortscore {
-      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-141414@4x.png?v=7.0');
-      background-image: url('/wp-content/plugins/wp-shortscore/images/shortscore-mask-141414.svg?v=7.0'),linear-gradient(transparent, transparent);
-
-    }
-  }
 }
 
 /* Container */
