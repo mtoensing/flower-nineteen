@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 8.2
+Version: 8.3
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -41,7 +41,6 @@ html .pswp__caption__center,
 html .page-template-sortbyreview .entry-content ul {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
-
 */
 
 html .pagination .nav-links {
@@ -51,7 +50,6 @@ html .pagination .nav-links {
 html .wp-block-embed figcaption {
     font-size: 0.71111em;
 }
-
 
 .entry .entry-content .wp-block-cover,
 .entry .entry-content blockquote {}
@@ -326,8 +324,6 @@ html #colophon .site-info .privacy-policy-link {
   image-rendering: crisp-edges;
 }
 
-
-
 /*hide widget on home */
 .home .widget_recent_entries {
   display: none;
@@ -355,7 +351,8 @@ html #colophon .site-info .privacy-policy-link {
       */
   }
 
-  html  var(--bg-color);
+  html body {
+    background-color: var(--bg-color);
     color: var(--txt-color);
   }
 
@@ -850,3 +847,113 @@ html #mailpoet_form_1 .mailpoet_form {
 		 font-size: 90%;
 	}
 }
+
+
+/*
+.entry .entry-content .wp-block-code code {
+    font-size: 0.8em;
+}
+.mailpoet_form,
+.widget_mailpoet_form {
+	width: 100% ! important;
+	background: #d8e0e8;
+	padding: 10px 10px 10px 10px;
+  border-radius: 0.2em;
+}
+
+html #mailpoet_form_1 .mailpoet_form {
+	padding: 0;
+}
+
+.widget_mailpoet_form .widget-title:before{
+	content: none;
+}
+
+.widget_mailpoet_form .widget-title {
+	padding-left: 10px;
+}
+
+.mailpoet_page .entry-meta {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .mailpoet_form,
+  .widget_mailpoet_form {
+  	background: #003f77;
+  }
+}
+
+@media only screen and (max-width:768px) {
+.simpletoc li ul {
+ margin-left: 0;
+ padding-left: 0.8em;
+
+}
+	.simpletoc{
+		 font-size: 90%;
+	}
+}
+
+.site-header.featured-image {
+		min-height: 85vh;
+}
+@media only screen and (max-width:768px) {
+		html .site-header.featured-image {
+				min-height: 60vh;
+		}
+}
+
+.entry-content .warning {
+    background-color: #f9bfbf;
+    padding: 0.3em 0.5em 0.6em;
+    border: 1px solid #f7a5a5;
+    border-radius: .125rem;
+}
+
+.home #breadcrumbs {
+	display: none;
+}
+
+html .pagination .nav-links {
+    font-size: 150%;
+}
+
+.site-header.featured-image:after {
+	opacity: 0.5;
+}
+
+.ptag-showteaser .site-header.featured-image:after {
+	opacity: 0;
+}
+
+.ptag-pixelated .single-featured-image-header img,
+.tag-pixelated .post-thumbnail img,
+.tag-pixelated .entry-content img {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.lazy-load-div:before {
+    content: "" ! important;
+}
+
+.titletext{
+		padding: 7px 15px;
+		position: initial;
+	  display: inline-block;
+    background: #000000ba;
+}
+
+.entry-content a.preview-lazyload {
+	font-size: 18px;
+}
+
+.entry-content a.preview-lazyload {
+  font-family: inherit;
+}
+
+
+*/
