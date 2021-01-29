@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 8.0
+Version: 8.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -18,6 +18,11 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 
 /* typography */
 
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+/*
 html #cookie-notice,
 html .container-lazyload .titletext,
 html .type-game .shortscore-hreview .text,
@@ -52,6 +57,7 @@ html .container-lazyload .titletext {
 html .entry .entry-content .wp-block-quote p {
   font-style: italic;
 }
+*/
 
 /* table */
 .entry-content tfoot {
@@ -114,6 +120,22 @@ html .single .type-game .shortscore {
 }
 
 /* links */
+
+.entry .entry-content a {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  color: inherit;
+}
+
+.entry .entry-content a:hover {
+  text-decoration-style: dotted;
+  text-decoration-skip-ink: none;
+  text-decoration: dotted;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #000;
+  text-decoration-line: underline;;
+}
+
 .entry .entry-content a[href*='=087022']:after,
 .entry .entry-content a[href*='/out/']:after {
   /* content: "\2197"; */
