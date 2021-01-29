@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 8.1
+Version: 8.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -18,7 +18,7 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 
 /* typography */
 
-body {
+body, button, input, select, optgroup, textarea {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
@@ -42,14 +42,16 @@ html .page-template-sortbyreview .entry-content ul {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
+*/
+
+html .pagination .nav-links {
+    font-size: 150%;
+}
+
 html .wp-block-embed figcaption {
     font-size: 0.71111em;
 }
 
-html .container-lazyload .titletext {
-  background-color: #000000bf;
-	padding: 3px 10px;
-}
 
 .entry .entry-content .wp-block-cover,
 .entry .entry-content blockquote {}
@@ -57,7 +59,28 @@ html .container-lazyload .titletext {
 html .entry .entry-content .wp-block-quote p {
   font-style: italic;
 }
-*/
+
+.titletext{
+		padding: 7px 15px;
+		position: initial;
+	  display: inline-block;
+    background: #000000ba;
+}
+
+/* Lazyload  */
+
+.entry-content a.preview-lazyload {
+	font-size: 18px;
+}
+
+
+.lazy-load-div:before {
+    content: "" ! important;
+}
+
+.entry-content a.preview-lazyload {
+  font-family: inherit;
+}
 
 /* table */
 .entry-content tfoot {
@@ -188,6 +211,7 @@ html nav.navigation.pagination {
 }
 
 /* warning and notice bright box */
+
 html .entry-content .warning,
 html .entry-content .notice {
   padding: 0.3em 0.4em 0.3em;
@@ -210,8 +234,10 @@ html .entry-content .notice {
 }
 
 html .entry-content .warning {
-  background-color: #ea9999;
-  border-color: #ec2a2a;
+    background-color: #f9bfbf;
+    padding: 0.3em 0.5em 0.6em;
+    border: 1px solid #f7a5a5;
+    border-radius: .125rem;
 }
 
 /* Last commented */
@@ -275,9 +301,10 @@ html .wp-block-code {
   border-top: 0.3em solid #0073aa;
 }
 
-.wp-block-code code,
+.entry .entry-content .wp-block-code code,
 .shell-look {
   list-style: none;
+  font-size: 0.8em;
 }
 
 /* breadcrumb styling */
@@ -328,8 +355,7 @@ html #colophon .site-info .privacy-policy-link {
       */
   }
 
-  body {
-    background-color: var(--bg-color);
+  html  var(--bg-color);
     color: var(--txt-color);
   }
 
@@ -785,8 +811,12 @@ html #colophon .site-info .privacy-policy-link {
 .widget_mailpoet_form {
 	width: 100% ! important;
 	background: #d8e0e8;
-	padding: 0.3em;
+	padding: 10px 10px 10px 10px;
   border-radius: 0.2em;
+}
+
+html #mailpoet_form_1 .mailpoet_form {
+	padding: 0;
 }
 
 .widget_mailpoet_form .widget-title:before{
@@ -794,7 +824,7 @@ html #colophon .site-info .privacy-policy-link {
 }
 
 .widget_mailpoet_form .widget-title {
-	padding-left: 0.3em;
+	padding-left: 10px;
 }
 
 .mailpoet_page .entry-meta {
