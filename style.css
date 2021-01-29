@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 8.3
+Version: 8.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -99,10 +99,11 @@ html .entry .entry-content .wp-block-quote p {
 
 .entry-content table tr {
   border-bottom: 1px solid #4c4c4c;
+  background-color: #fbf7ea;
 }
 
 .entry-content table tr:nth-child(odd) {
-  background: #f7f7f7;
+  /* background: #f7f7f7; */
 }
 
 /* SHORTSCORE Widget */
