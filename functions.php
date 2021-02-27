@@ -198,7 +198,7 @@ function flowerfield_recent_posts()
 			<?php $permalink = get_the_permalink(); ?>
 						<div class="teaserbox-post teaserbox-post<?php echo $i?> teaserbox-post-thumbs">
 								<a class="teaserbox-post-a" href="<?php echo $permalink; ?>" title="<?php the_title_attribute(); ?>" rel="nofollow" >
-								<img loading="lazy" src="<?php the_post_thumbnail_url($size); ?>" srcset="<?php the_post_thumbnail_url($size_retina); ?> 2x">
+								<img loading="lazy" height="300" width="130" src="<?php the_post_thumbnail_url($size); ?>" srcset="<?php the_post_thumbnail_url($size_retina); ?> 2x">
 								</a>
 								<h4 data-date="<?php the_date(); ?>" class="teaserbox-post-title">
 										<a class="teaserbox-post-a" href="<?php echo $permalink; ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>

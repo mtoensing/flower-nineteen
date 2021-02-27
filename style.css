@@ -51,9 +51,6 @@ html .wp-block-embed figcaption {
     font-size: 0.71111em;
 }
 
-.entry .entry-content .wp-block-cover,
-.entry .entry-content blockquote {}
-
 html .entry .entry-content .wp-block-quote p {
   font-style: italic;
 }
@@ -102,10 +99,6 @@ html .entry .entry-content .wp-block-quote p {
   background-color: #fbf7ea;
 }
 
-.entry-content table tr:nth-child(odd) {
-  /* background: #f7f7f7; */
-}
-
 /* SHORTSCORE Widget */
 .shortscore-widget a {
   font-size: 200%;
@@ -134,11 +127,6 @@ html .type-game .shortscore-hreview .link {
 
 .shortscore-title {
   display: none;
-}
-
-html .type-game .shortscore-hreview .text,
-html .single .type-game .shortscore {
-
 }
 
 /* links */
