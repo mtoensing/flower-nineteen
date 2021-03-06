@@ -423,7 +423,9 @@ html #colophon .site-info .privacy-policy-link {
   html .entry .entry-meta, 
   html .entry .entry-footer,
   html .comment-form .comment-notes, 
-  html .comment-form label {
+  html .comment-form label,
+  .comment .comment-metadata > a,
+  .comment .comment-metadata .comment-edit-link  {
     color: var(--txt-color-darker);
   }
   
