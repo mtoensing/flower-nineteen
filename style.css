@@ -9,7 +9,7 @@ GitHub Theme URI: mtoensing/flower-nineteen
 Template: twentynineteen
 Description: May this field of flowers be the canvas for your content.
 Requires at least: WordPress 4.9.6
-Version: 10.0
+Version: 10.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: twentynineteen
@@ -21,6 +21,10 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 body, button, input, select, optgroup, textarea, .page-title {
   font-display: swap;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+#cancel-comment-reply-link {
+  padding-left: 0.5em;
 }
 
 html .pagination .nav-links {
@@ -141,6 +145,16 @@ html .type-game .shortscore-hreview .link {
 
 #colophon .site-info .privacy-policy-link {
   margin-left: 1rem;
+}
+
+html #colophon .site-info,
+html .entry .entry-meta, 
+html .entry .entry-footer,
+html .comment-form .comment-notes, 
+html .comment-form label,
+.comment .comment-metadata > a,
+.comment .comment-metadata .comment-edit-link {
+  color: #333; 
 }
 
 /* 14.0 Comments */
@@ -373,6 +387,7 @@ html #colophon .site-info .privacy-policy-link {
     color: var(--highlight-color-selected);
   }
 
+
 /* Dark notice warning */
   html .entry-content .warning{
     color: var(--txt-color);
@@ -403,9 +418,15 @@ html #colophon .site-info .privacy-policy-link {
   html .wp-block-embed figcaption,
   html .wp-block-quote__citation,
   html .wp-block-quote cite,
-  html .wp-block-quote footer {
+  html .wp-block-quote footer,
+  html #colophon .site-info,
+  html .entry .entry-meta, 
+  html .entry .entry-footer,
+  html .comment-form .comment-notes, 
+  html .comment-form label {
     color: var(--txt-color-darker);
   }
+  
 
   html .entry-content .promoted-comment p a,
   html .archive .page-header .search-term,
@@ -724,18 +745,6 @@ html #colophon .site-info .privacy-policy-link {
         padding-left: 1em;
         padding-right: 1em;
     }
-}
-
-/* featured image height */
-
-.site-header.featured-image {
-		min-height: 80vh;
-}
-
-@media only screen and (max-width:768px) {
-		html .site-header.featured-image {
-				min-height: 60vh;
-		}
 }
 
 /* mail poet widget */
