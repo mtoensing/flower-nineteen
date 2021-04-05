@@ -45,8 +45,8 @@ get_header();
 					);
 				}
 				/* YARPP Related Posts */
-				if ( function_exists( 'related_posts' ) ) {
-					related_posts();
+				if ( function_exists( 'yarpp_related' ) ) {
+					yarpp_related();
 				}
 				
 				/* Field of Flowers Recent Posts */
