@@ -286,11 +286,11 @@ function get_gallery_list()
 {
     $args = array(
         'post_type'      => 'post',
-        'orderby'        => array( 'meta_value_num' => 'DESC', 'date' => 'DESC' ),
+        'orderby'        => array( 'date' => 'DESC' ),
         'meta_key'       => '_shortscore_user_rating',
         'posts_per_page' => '300',
         'order'          => 'DESC',
-        'tag'						 => 'kunstpixel'
+        'tag'			 => 'kunstpixel'
     );
 
     $the_query = new WP_Query($args);
