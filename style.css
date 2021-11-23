@@ -441,7 +441,8 @@ html #colophon .site-info .privacy-policy-link {
   html .site-title a:visited,
   html .social-navigation ul.social-links-menu li a,
   html .comment-form .comment-notes,
-  html .comment-form label {
+  html .comment-form label,
+  html .entry .entry-content .wp-block-pullquote blockquote {
     color: var(--txt-color);
   }
 
