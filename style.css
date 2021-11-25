@@ -624,9 +624,6 @@ html #colophon .site-info .privacy-policy-link {
 
 .teaserbox .teaserbox-items-visual .teaserbox-post {
     padding-right: 20px;
-    filter: alpha(opacity=80);
-    -moz-opacity: .8;
-    opacity: .8
 }
 
 .teaserbox .teaserbox-items .teaserbox-post:nth-child(3n+4),.teaserbox .teaserbox-items-visual .teaserbox-post:nth-child(3n+4) {
