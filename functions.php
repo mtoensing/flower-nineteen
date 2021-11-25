@@ -20,7 +20,6 @@ function rudr_filter_by_the_author() {
 	wp_dropdown_users( $params ); // print the ready author list
 }
 
-
 add_filter( 'comment_form_defaults', 'remove_pre_comment_text' );
 
 function remove_pre_comment_text( $arg ) {
@@ -192,14 +191,11 @@ function flowerfield_recent_posts()
 	  <?php while ($the_query->have_posts()) :
       $the_query->the_post();
       if (has_post_thumbnail()):?>
-			<?php
-      $size = "yarpp";
-      $size_retina = "yarpp-retina"; ?>
 			<?php $permalink = get_the_permalink(); ?>
 						<div class="teaserbox-post teaserbox-post<?php echo $i?> teaserbox-post-thumbs">
 								<a class="teaserbox-post-a" href="<?php echo $permalink; ?>" title="<?php the_title_attribute(); ?>" rel="nofollow" >
-								<img loading="lazy" alt="<?php echo get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ); ?>" width="300" height="130" src="<?php the_post_thumbnail_url($size); ?>" srcset="<?php the_post_thumbnail_url($size_retina); ?> 2x">
-								</a>
+								<?php echo get_the_post_thumbnail(get_the_ID(), "medium"); ?>
+                                </a>
 								<h4 data-date="<?php the_date(); ?>" class="teaserbox-post-title">
 										<a class="teaserbox-post-a" href="<?php echo $permalink; ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 								</h4>
@@ -264,10 +260,7 @@ add_action('after_setup_theme', 'flower_theme_setup', 111);
 
 function flower_theme_setup()
 {
-    add_image_size('yarpp', 460, 200, true); // yarpp image
-    add_image_size('yarpp-retina', 920, 400, true); // yarpp image
-    add_image_size('medium_large', 692, 376, true); // m image
-    set_post_thumbnail_size(1416, 9999);
+    set_post_thumbnail_size(1920, 9999);
 }
 
 add_filter('jpeg_quality', function ($arg) {
