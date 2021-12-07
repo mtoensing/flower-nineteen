@@ -360,8 +360,7 @@ html #colophon .site-info .privacy-policy-link {
   html .entry .entry-content>.has-primary-color,
   html .entry .entry-content>*[class^="wp-block-"] .has-primary-color,
   html .entry .entry-content>*[class^="wp-block-"].is-style-solid-color blockquote.has-primary-color,
-  html .entry .entry-content>*[class^="wp-block-"].is-style-solid-color blockquote.has-primary-color p,
-  html li.lastcommented a .comment-author-link {
+  html .entry .entry-content>*[class^="wp-block-"].is-style-solid-color blockquote.has-primary-color p {
     color: var(--highlight-color);
   }
 
@@ -425,7 +424,8 @@ html #colophon .site-info .privacy-policy-link {
   html .comment-form .comment-notes, 
   html .comment-form label,
   .comment .comment-metadata > a,
-  .comment .comment-metadata .comment-edit-link  {
+  .comment .comment-metadata .comment-edit-link,
+  html .wp-block-last-commented-posts .comment-author-link   {
     color: var(--txt-color-darker);
   }
   
