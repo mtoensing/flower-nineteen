@@ -793,3 +793,15 @@ html #mailpoet_form_1 .mailpoet_form {
 	}
 }
 
+/* search */
+
+.widget_search .search-field {
+  float: left;
+  margin-right: 0.5em;
+  width: auto;
+}
+
+.widget_search .search-submit {
+  display: block;
+  margin-top: 0;
+}
